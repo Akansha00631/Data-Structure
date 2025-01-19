@@ -1,13 +1,9 @@
 #include <stdio.h>
 #include <ctype.h>
 
-#define MAX 100
-
-// Stack structure
+#define MAX 100;
 int stack[MAX];
 int top = -1;
-
-// Function to push an element onto the stack
 void push(int value) {
     if (top == MAX - 1) {
         printf("Stack Overflow\n");
@@ -15,8 +11,6 @@ void push(int value) {
     }
     stack[++top] = value;
 }
-
-// Function to pop an element from the stack
 int pop() {
     if (top == -1) {
         printf("Stack Underflow\n");
@@ -24,18 +18,14 @@ int pop() {
     }
     return stack[top--];
 }
-
-// Function to evaluate a postfix expression
 int evaluatePostfix(char* postfix) {
     int i = 0;
     char c;
 
     while ((c = postfix[i++]) != '\0') {
         if (isdigit(c)) {
-            // If the character is a digit, push it onto the stack
             push(c - '0');
         } else {
-            // If the character is an operator, pop two elements and apply the operator
             int b = pop();
             int a = pop();
             switch (c) {
@@ -47,10 +37,6 @@ int evaluatePostfix(char* postfix) {
                     printf("Invalid operator: %c\n", c);
                     return -1;
             }
-        }
-    }
-
-    // The final result will be on top of the stack
     return pop();
 }
 
