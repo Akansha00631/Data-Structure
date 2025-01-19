@@ -42,12 +42,8 @@ int evaluatePostfix(char* postfix) {
 
 int main() {
     char postfix[MAX];
-
-    // Input the postfix expression
     printf("Enter a valid postfix expression: ");
     scanf("%s", postfix);
-
-    // Evaluate the postfix expression
     int result = evaluatePostfix(postfix);
     printf("Result: %d\n", result);
 
